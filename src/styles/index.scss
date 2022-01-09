@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+@import './variables';
+
+/* base styles & title */
+
+body {
+  font-family: 'Noto Serif';
+  color: $secondary;
+  background-image: radial-gradient(
+    588px at 31.7% 40.2%,
+    $bgi1 21.4%,
+    $bgi2 57.1%
+  );
+
+  transition: all 0.2s cubic-bezier(0.8, 0, 0.2, 1);
+}
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+}
+// Upload form
+form {
+  margin: 30px auto 10px;
+  text-align: center;
+
+  .output {
+    height: 60px;
+    font-size: 0.8rem;
+  }
+  .error {
+    color: $error;
+  }
+  label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid $primary;
+    border-radius: 50%;
+    margin: 10px auto;
+    line-height: 30px;
+    color: $primary;
+    font-weight: bold;
+    font-size: 24px;
+
+    &:hover {
+      background: $primary;
+      color: $bd;
+      transform: rotate(360 deg);
+    }
+    input {
+      height: 0;
+      width: 0;
+      opacity: 0;
+    }
+  }
+}
+// Style component
+.title {
+  h1 {
+    color: $primary;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: normal;
+  }
+  h2,
+  p {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 50px;
+    line-height: 40px;
+    font-weight: 600;
+    margin-left: -20px;
+    color: transparent;
+    -webkit-text-stroke: 1px $error;
+  }
+  p {
+    font-size: 20px;
+    font-weight: 450;
+    color: $texCl;
+  }
+}
+//Progress bar
+.progress-bar {
+  height: 5px;
+  background: $primary;
+  margin-top: 20px;
+  transition: all 2s ease;
+}
+
+//backdrop component style
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $rgbac;
+  img {
+    display: block;
+    max-width: 60%;
+    max-height: 80%;
+    margin: 60px auto;
+    box-shadow: 3px 5px 7px $rgbac;
+    border: 3px solid $bd;
+  }
+}
+.img-grid {
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+.img-wrap {
+  overflow: hidden;
+  height: 0;
+  padding: 50% 0;
+  /* padding controls height, will always be perfectly square regardless of width */
+  position: relative;
+  opacity: 0.8;
+  img {
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 150%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
